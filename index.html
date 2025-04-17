@@ -7,20 +7,18 @@
   <link rel="stylesheet" type="text/css" href="style.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 
+  <!-- Google reCAPTCHA Script -->
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
   <style>
     @keyframes scrollMessage {
-      0% {
-        transform: translateX(-100%);
-      }
-      100% {
-        transform: translateX(100%);
-      }
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
     }
 
     #thankYouMessage {
       display: none;
       font-size: 24px;
-      color: green;
       white-space: nowrap;
       position: fixed;
       bottom: 0;
@@ -45,6 +43,11 @@
     .gender-selection input {
       margin-right: 10px;
     }
+
+    .g-recaptcha {
+      margin-top: 15px;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
@@ -53,22 +56,13 @@
     <div class="form-container">
       <form id="regForm" action="https://api.web3forms.com/submit" method="POST">
 
-        <!-- Web3Forms Access Key -->
         <input type="hidden" name="access_key" value="c9f66eb3-7bae-487c-bd58-ab7a0f817bff" />
-
-        <!-- Full Name for Web3Forms -->
         <input type="hidden" name="name" id="full_name" />
-
-        <!-- Message to comply with Web3Forms structure -->
         <input type="hidden" name="message" value="New user registration submitted." />
-
-        <!-- Redirect after successful submission -->
         <input type="hidden" name="redirect" value="https://registration-form-gamma-two.vercel.app/" />
-
-        <!-- Honeypot for spam protection -->
         <input type="text" name="botcheck" style="display:none" />
 
-        <!-- First & Last Name -->
+        <!-- Name -->
         <div class="input-name">
           <i class="fa fa-user lock"></i>
           <input type="text" placeholder="First Name" class="name" id="first_name" required />
@@ -84,7 +78,7 @@
           <input type="email" placeholder="Email id" class="text-name" name="email" required />
         </div>
 
-        <!-- Custom Code Fields -->
+        <!-- Code Fields -->
         <div class="input-name">
           <i class="fa fa-lock lock"></i>
           <input type="text" placeholder="Create a Code" class="name" name="code" required />
@@ -95,7 +89,7 @@
           <input type="text" placeholder="Confirm Code" class="name" name="confirm_code" required />
         </div>
 
-        <!-- Gender Selection -->
+        <!-- Gender -->
         <div class="input-name gender-selection">
           <input type="radio" class="radio-button" name="gender" value="female" required />
           <label>Female</label>
@@ -105,13 +99,18 @@
           </span>
         </div>
 
-        <!-- Terms Agreement -->
+        <!-- reCAPTCHA -->
+        <div class="input-name">
+          <div class="g-recaptcha" data-sitekey="6LdbuRsrAAAAANJxZRIsBIgPIV4qE7Y78bRj7qf3"></div>
+        </div>
+
+        <!-- Terms -->
         <div class="input-name">
           <input type="checkbox" class="check-point" name="terms" value="accepted" required />
           <label>I accept the terms and conditions</label>
         </div>
 
-        <!-- Submit Button -->
+        <!-- Submit -->
         <div class="input-name">
           <input type="submit" class="button" value="Register" />
         </div>
@@ -142,6 +141,7 @@
   </script>
 </body>
 </html>
+
 
 
 
