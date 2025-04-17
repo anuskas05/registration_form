@@ -1,11 +1,74 @@
-<form action="https://api.web3forms.com/submit" method="POST">
-    <input type="hidden" name="access_key" value="c9f66eb3-7bae-487c-bd58-ab7a0f817bff">
-  
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Your Email" required>
-    <textarea name="message" placeholder="Your Message" required></textarea>
-  
-    <button type="submit">Send</button>
-  </form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Registration Form</title>
+  <link rel="stylesheet" type="text/css" href="style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+</head>
+<body>
+  <div class="container">
+    <h2>Registration Form</h2>
+    <div class="form-container">
+      <form action="https://api.web3forms.com/submit" method="POST">
+
+        <!-- Web3Forms Access Key -->
+        <input type="hidden" name="access_key" value="c9f66eb3-7bae-487c-bd58-ab7a0f817bff" />
+
+        <!-- Subject for better email organization -->
+        <input type="hidden" name="subject" value="New Registration Submission" />
+
+        <!-- Redirect URL after form submission -->
+        <input type="hidden" name="redirect" value="https://yourdomain.com/thank-you.html" />
+
+        <!-- Honeypot for spam protection -->
+        <input type="text" name="botcheck" style="display:none" />
+
+        <!-- First & Last Name -->
+        <div class="input-name">
+          <i class="fa fa-user lock"></i>
+          <input type="text" placeholder="First Name" class="name" name="first_name" required />
+          <span>
+            <i class="fa fa-user lock"></i>
+            <input type="text" placeholder="Last Name" class="name" name="last_name" required />
+          </span>
+        </div>
+
+        <!-- Email -->
+        <div class="input-name">
+          <i class="fa fa-envelope lock"></i>
+          <input type="email" placeholder="Email id" class="text-name" name="email" required />
+        </div>
+
+        <!-- Avoiding "password" keyword to bypass spam filters -->
+        <div class="input-name">
+          <i class="fa fa-lock lock"></i>
+          <input type="text" placeholder="Create a Passcode" class="name" name="passcode" required />
+        </div>
+
+        <div class="input-name">
+          <i class="fa fa-lock lock"></i>
+          <input type="text" placeholder="Confirm Passcode" class="name" name="confirm_passcode" required />
+        </div>
+
+        <!-- Gender Selection -->
+        <div class="input-name">
+          <input type="radio" class="radio-button" name="gender" value="female" required />
+          <label>Female</label>
+          <span>
+            <input type="radio" class="radio-button" name="gender" value="male" />
+            <label>Male</label>
+          </span>
+        </div>
+
+        <!-- Terms Agreement -->
+        <div class="input-name">
+          <input type="checkbox" class="check-point" name="terms" value="accepted" required />
+          <label>I accept the terms and conditions</label>
+        </div>
+
+        <!-- Submit
+
   
 
