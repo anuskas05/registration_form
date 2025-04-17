@@ -6,8 +6,6 @@
   <title>Registration Form</title>
   <link rel="stylesheet" type="text/css" href="style.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-
-  <!-- Google reCAPTCHA Script -->
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
   <style>
@@ -79,17 +77,21 @@
         </div>
 
         <!-- Code Fields -->
-       <!-- Code Fields -->
-<div class="input-name">
-    <i class="fa fa-lock lock"></i>
-    <input type="password" placeholder="Create a Code" class="name" name="code" required />
-  </div>
-  
-  <div class="input-name">
-    <i class="fa fa-lock lock"></i>
-    <input type="password" placeholder="Confirm Code" class="name" name="confirm_code" required />
-  </div>
-  
+        <div class="input-name">
+          <i class="fa fa-lock lock"></i>
+          <input type="password" placeholder="Create a Code" class="name" name="code" id="code" required />
+        </div>
+
+        <div class="input-name">
+          <i class="fa fa-lock lock"></i>
+          <input type="password" placeholder="Confirm Code" class="name" name="confirm_code" id="confirm_code" required />
+        </div>
+
+        <!-- Show Password Toggle -->
+        <div class="input-name">
+          <input type="checkbox" id="togglePassword" />
+          <label for="togglePassword">Show Code</label>
+        </div>
 
         <!-- Gender -->
         <div class="input-name gender-selection">
@@ -127,6 +129,7 @@
 
   <script>
     const form = document.getElementById("regForm");
+
     form.addEventListener("submit", function(event) {
       event.preventDefault();
 
@@ -140,9 +143,19 @@
         form.submit();
       }, 2000);
     });
+
+    // Show/Hide Code Toggle
+    document.getElementById("togglePassword").addEventListener("change", function () {
+      const code = document.getElementById("code");
+      const confirmCode = document.getElementById("confirm_code");
+      const type = this.checked ? "text" : "password";
+      code.type = type;
+      confirmCode.type = type;
+    });
   </script>
 </body>
 </html>
+
 
 
 
