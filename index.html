@@ -6,6 +6,30 @@
   <title>Registration Form</title>
   <link rel="stylesheet" type="text/css" href="style.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+  <style>
+    /* CSS for the scrolling animation */
+    @keyframes scrollMessage {
+      0% {
+        transform: translateX(-100%);
+      }
+      100% {
+        transform: translateX(100%);
+      }
+    }
+
+    #thankYouMessage {
+      display: none;
+      font-size: 24px;
+      color: green;
+      white-space: nowrap;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      text-align: center;
+      animation: scrollMessage 5s linear infinite;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
@@ -79,7 +103,7 @@
     </div>
 
     <!-- Thank you message -->
-    <div id="thankYouMessage" style="display:none;">
+    <div id="thankYouMessage">
       <h3>Thank you for your submission!</h3>
     </div>
 
