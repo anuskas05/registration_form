@@ -6,12 +6,8 @@
   <title>Registration Form</title>
   <link rel="stylesheet" type="text/css" href="style.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-  
-  <!-- Google reCAPTCHA -->
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
   <style>
-    /* CSS for the scrolling animation */
     @keyframes scrollMessage {
       0% {
         transform: translateX(-100%);
@@ -26,15 +22,15 @@
       font-size: 24px;
       color: green;
       white-space: nowrap;
-      position: fixed; /* Position it at the bottom */
+      position: fixed;
       bottom: 0;
       left: 0;
       right: 0;
       text-align: center;
-      animation: scrollMessage 10s linear infinite; /* Adjust time for smoother scrolling */
-      padding: 10px 0; /* Optional: space around text */
-      background-color: rgba(0, 0, 0, 0.5); /* Optional: background for visibility */
-      color: white; /* Text color */
+      animation: scrollMessage 10s linear infinite;
+      padding: 10px 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
     }
 
     .input-name {
@@ -48,11 +44,6 @@
 
     .gender-selection input {
       margin-right: 10px;
-    }
-
-    .g-recaptcha {
-      margin-top: 15px;
-      text-align: center;
     }
   </style>
 </head>
@@ -114,11 +105,6 @@
           </span>
         </div>
 
-        <!-- reCAPTCHA -->
-        <div class="input-name">
-          <div class="g-recaptcha" data-sitekey="6LettxsrAAAAAN_ORdLe1CemT3FEh6b_Xtl6XV8P"></div>
-        </div>
-
         <!-- Terms Agreement -->
         <div class="input-name">
           <input type="checkbox" class="check-point" name="terms" value="accepted" required />
@@ -136,32 +122,27 @@
     <div id="thankYouMessage">
       <h3>Thank you for your submission!</h3>
     </div>
-
   </div>
 
   <script>
-    // Merge first and last name into the hidden "name" field before submission
     const form = document.getElementById("regForm");
     form.addEventListener("submit", function(event) {
-      // Prevent immediate form submission
       event.preventDefault();
 
-      // Merge first and last names
       const first = document.getElementById("first_name").value.trim();
       const last = document.getElementById("last_name").value.trim();
       document.getElementById("full_name").value = `${first} ${last}`;
 
-      // Display "Thank you for your submission" message
       document.getElementById("thankYouMessage").style.display = "block";
 
-      // Submit the form after a delay to show the message
       setTimeout(function() {
         form.submit();
-      }, 2000);  // Wait 2 seconds before submitting
+      }, 2000);
     });
   </script>
 </body>
 </html>
+
 
 
 
