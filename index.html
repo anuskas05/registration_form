@@ -6,6 +6,10 @@
   <title>Registration Form</title>
   <link rel="stylesheet" type="text/css" href="style.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+  
+  <!-- Google reCAPTCHA -->
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
   <style>
     /* CSS for the scrolling animation */
     @keyframes scrollMessage {
@@ -22,12 +26,33 @@
       font-size: 24px;
       color: green;
       white-space: nowrap;
-      position: absolute;
-      top: 50%;
+      position: fixed; /* Position it at the bottom */
+      bottom: 0;
       left: 0;
       right: 0;
       text-align: center;
-      animation: scrollMessage 5s linear infinite;
+      animation: scrollMessage 10s linear infinite; /* Adjust time for smoother scrolling */
+      padding: 10px 0; /* Optional: space around text */
+      background-color: rgba(0, 0, 0, 0.5); /* Optional: background for visibility */
+      color: white; /* Text color */
+    }
+
+    .input-name {
+      margin-bottom: 10px;
+    }
+
+    .gender-selection {
+      display: flex;
+      align-items: center;
+    }
+
+    .gender-selection input {
+      margin-right: 10px;
+    }
+
+    .g-recaptcha {
+      margin-top: 15px;
+      text-align: center;
     }
   </style>
 </head>
@@ -80,13 +105,18 @@
         </div>
 
         <!-- Gender Selection -->
-        <div class="input-name">
+        <div class="input-name gender-selection">
           <input type="radio" class="radio-button" name="gender" value="female" required />
           <label>Female</label>
           <span>
             <input type="radio" class="radio-button" name="gender" value="male" />
             <label>Male</label>
           </span>
+        </div>
+
+        <!-- reCAPTCHA -->
+        <div class="input-name">
+          <div class="g-recaptcha" data-sitekey="6LfrthsrAAAAAC4a9_ddeD-HpzXr197NBpDjKots"></div>
         </div>
 
         <!-- Terms Agreement -->
@@ -132,6 +162,7 @@
   </script>
 </body>
 </html>
+
 
 
 
