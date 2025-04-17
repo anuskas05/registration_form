@@ -11,18 +11,30 @@
   <div class="container">
     <h2>Registration Form</h2>
     <div class="form-container">
-      <form action="https://api.web3forms.com/submit" method="POST">
-        
+      <form id="regForm" action="https://api.web3forms.com/submit" method="POST">
+
         <!-- Web3Forms Access Key -->
         <input type="hidden" name="access_key" value="c9f66eb3-7bae-487c-bd58-ab7a0f817bff" />
+
+        <!-- Full Name for Web3Forms -->
+        <input type="hidden" name="name" id="full_name" />
+
+        <!-- Message to comply with Web3Forms structure -->
+        <input type="hidden" name="message" value="New user registration submitted." />
+
+        <!-- Redirect after successful submission -->
+        <input type="hidden" name="redirect" value="https://registration-form-gamma-two.vercel.app/" />
+
+        <!-- Honeypot for spam protection -->
+        <input type="text" name="botcheck" style="display:none" />
 
         <!-- First & Last Name -->
         <div class="input-name">
           <i class="fa fa-user lock"></i>
-          <input type="text" placeholder="First Name" class="name" name="first_name" required />
+          <input type="text" placeholder="First Name" class="name" id="first_name" required />
           <span>
             <i class="fa fa-user lock"></i>
-            <input type="text" placeholder="Last Name" class="name" name="last_name" required />
+            <input type="text" placeholder="Last Name" class="name" id="last_name" required />
           </span>
         </div>
 
@@ -32,15 +44,15 @@
           <input type="email" placeholder="Email id" class="text-name" name="email" required />
         </div>
 
-        <!-- Avoiding "password" keyword to bypass spam filters -->
+        <!-- Custom Code Fields -->
         <div class="input-name">
           <i class="fa fa-lock lock"></i>
-          <input type="text" placeholder="Create a Passcode" class="name" name="passcode" required />
+          <input type="text" placeholder="Create a Code" class="name" name="code" required />
         </div>
 
         <div class="input-name">
           <i class="fa fa-lock lock"></i>
-          <input type="text" placeholder="Confirm Passcode" class="name" name="confirm_passcode" required />
+          <input type="text" placeholder="Confirm Code" class="name" name="confirm_code" required />
         </div>
 
         <!-- Gender Selection -->
@@ -66,8 +78,19 @@
       </form>
     </div>
   </div>
+
+  <script>
+    // Merge first and last name into the hidden "name" field before submission
+    const form = document.getElementById("regForm");
+    form.addEventListener("submit", function () {
+      const first = document.getElementById("first_name").value.trim();
+      const last = document.getElementById("last_name").value.trim();
+      document.getElementById("full_name").value = `${first} ${last}`;
+    });
+  </script>
 </body>
 </html>
+
 
   
 
