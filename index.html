@@ -1,4 +1,74 @@
-<input type="text" name="first_name" />
-<input type="text" name="last_name" />
-<input type="email" name="email" />
-<input type="hidden" name="access_key" value="98d6287b-d69d-4167-95cb-2936f131bf1c" />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Registration Form</title>
+  <link rel="stylesheet" type="text/css" href="style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+</head>
+<body>
+  <div class="container">
+    <h2>Registration Form</h2>
+    <div class="form-container">
+      <form action="https://api.web3forms.com/submit" method="POST">
+        
+        <!-- ✅ Web3Forms NEW Access Key -->
+        <input type="hidden" name="access_key" value="98d6287b-d69d-4167-95cb-2936f131bf1c" />
+
+        <!-- ✅ First & Last Name -->
+        <div class="input-name">
+          <i class="fa fa-user lock"></i>
+          <input type="text" placeholder="First Name" class="name" name="first_name" required />
+          <span>
+            <i class="fa fa-user lock"></i>
+            <input type="text" placeholder="Last Name" class="name" name="last_name" required />
+          </span>
+        </div>
+
+        <!-- ✅ Email -->
+        <div class="input-name">
+          <i class="fa fa-envelope lock"></i>
+          <input type="email" placeholder="Email id" class="text-name" name="email" required />
+        </div>
+
+        <!-- 🚫 These fields are not sent via email (optional) -->
+        <div class="input-name">
+          <i class="fa fa-lock lock"></i>
+          <input type="text" placeholder="Create a Passcode" class="name" name="passcode" />
+        </div>
+
+        <div class="input-name">
+          <i class="fa fa-lock lock"></i>
+          <input type="text" placeholder="Confirm Passcode" class="name" name="confirm_passcode" />
+        </div>
+
+        <!-- ✅ Gender -->
+        <div class="input-name">
+          <input type="radio" class="radio-button" name="gender" value="female" required />
+          <label>Female</label>
+          <span>
+            <input type="radio" class="radio-button" name="gender" value="male" />
+            <label>Male</label>
+          </span>
+        </div>
+
+        <!-- ✅ Terms -->
+        <div class="input-name">
+          <input type="checkbox" class="check-point" name="terms" value="accepted" required />
+          <label>I accept the terms and conditions</label>
+        </div>
+
+        <!-- ✅ Submit -->
+        <div class="input-name">
+          <input type="submit" class="button" value="Register" />
+        </div>
+
+        <!-- ✅ Optional: Redirect to success page -->
+        <input type="hidden" name="redirect" value="https://form-create-ten.vercel.app/success.html" />
+      </form>
+    </div>
+  </div>
+</body>
+</html>
+
